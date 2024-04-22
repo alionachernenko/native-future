@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { RecaptchaVerifier, getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getRemoteConfig } from "firebase/remote-config";
 import { getStorage } from "firebase/storage";
@@ -22,3 +22,13 @@ export const db = getFirestore(app);
 export const remoteConfig = getRemoteConfig(app);
 export const storage = getStorage(customApp);
 export const analytics = getAnalytics(app);
+
+window.recaptchaVerifier = new RecaptchaVerifier(auth, "sign-in-button", {
+  size: "invisible",
+  callback: (response) => {
+    console.log("reCAPTCHA solved", response);
+  },
+});
+
+
+export const appVerifier = window.recaptchaVerifier
