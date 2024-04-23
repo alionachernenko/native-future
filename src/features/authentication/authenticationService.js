@@ -3,10 +3,12 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  GoogleAuthProvider,
+  // GoogleAuthProvider,
+  signInWithPhoneNumber,
+  RecaptchaVerifier,
 } from "firebase/auth";
 
-const provider = new GoogleAuthProvider();
+// const provider = new GoogleAuthProvider();
 
 const signUpUserWithEmailAndPassword = async (email, password) => {
   const userCredential = await createUserWithEmailAndPassword(
@@ -34,26 +36,26 @@ const signOutUser = async () => {
   return res;
 };
 
-const authWithPhoneNumber = async (number) => {
-  auth.useDeviceLanguage();
+// const authWithPhoneNumber = async (number) => {
+//   auth.useDeviceLanguage();
 
-  window.recaptchaVerifier = new RecaptchaVerifier(auth, "sign-in-button", {
-    size: "invisible",
-    callback: (response) => {
-      signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-        .then((confirmationResult) => {
-          // SMS sent. Prompt user to type the code from the message, then sign the
-          // user in with confirmationResult.confirm(code).
-          window.confirmationResult = confirmationResult;
-          // ...
-        })
-        .catch((error) => {
-          // Error; SMS not sent
-          // ...
-        });
-    },
-  });
-};
+//   window.recaptchaVerifier = new RecaptchaVerifier(auth, "sign-in-button", {
+//     size: "invisible",
+//     callback: (response) => {
+//       signInWithPhoneNumber(auth, number, appVerifier)
+//         .then((confirmationResult) => {
+//           // SMS sent. Prompt user to type the code from the message, then sign the
+//           // user in with confirmationResult.confirm(code).
+//           window.confirmationResult = confirmationResult;
+//           // ...
+//         })
+//         .catch((error) => {
+//           // Error; SMS not sent
+//           // ...
+//         });
+//     },
+//   });
+// };
 
 export const authenticationService = {
   signUpUserWithEmailAndPassword,
