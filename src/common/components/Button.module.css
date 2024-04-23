@@ -1,0 +1,49 @@
+@import "../colors/colors.css";
+
+.button {
+  width: 100%;
+  max-width: 358px;
+
+  height: 48px;
+  padding: 0;
+
+  font-size: 18px;
+  line-height: 24px;
+  border-width: 1.5px;
+  border-style: solid;
+
+  background-color: transparent;
+  font-family: "e-Ukraine-Regular";
+}
+
+.button_standard {
+  background-color: var(--base_black);
+  color: var(--base_white);
+  border-color: var(--base_black);
+}
+
+.button_accent {
+  background-color: var(--accent_blue-darker);
+  color: var(--base_whiteсу);
+  border-color: var(--base_black);
+}
+
+.button_gradient {
+  background-color: var(--base_white);
+  color: var(--base_black);
+  border-color: var(--base_black);
+}
+
+.button_auth {
+  max-width: 173px;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  height: 68px;
+  background-color: var(--base_white);
+  border-radius: 34px;
+  border-color: var(--base_black);
+  border-width: 1.5px;
+}
