@@ -20,15 +20,15 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const remoteConfig = getRemoteConfig(app);
-export const storage = getStorage(customApp);
+export const storage = getStorage(app);
 export const analytics = getAnalytics(app);
 
-window.recaptchaVerifier = new RecaptchaVerifier(auth, "sign-in-button", {
-  size: "invisible",
-  callback: (response) => {
-    console.log("reCAPTCHA solved", response);
-  },
-});
+// window.recaptchaVerifier = new RecaptchaVerifier(auth, "sign-in-button", {
+//   size: "invisible",
+//   callback: (response) => {
+//     console.log("reCAPTCHA solved", response);
+//   },
+// });
 
 
-export const appVerifier = window.recaptchaVerifier
+// export const appVerifier = window.recaptchaVerifier
