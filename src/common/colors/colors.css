@@ -1,0 +1,15 @@
+:root {
+  --base_black: #181818;
+  --base_white: #fefefe;
+  --base_bright-grey: #e7eef3;
+  --base_grey--100: #959595;
+  --base_grey--80: #aaaaaa;
+  --base_grey--60: #bfbfbf;
+  --base_grey--40: #d5d5d5;
+
+  --accent_blue-darker: #5b5aff;
+  --accent_blue-darker--80: #7b7bff;
+  --accent_blue-darker--60: #9c9cfe;
+  --accent_blue-darker--40: #bdbdff;
+  --accent_blue-darker--20: #dedeff;
+}
