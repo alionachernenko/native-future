@@ -13,6 +13,7 @@ export const Input = ({
   placeholder = "",
   onChange = () => {},
   showVisibilityButton,
+  onVisibilityButtonClick = () => {},
 }) => {
   const renderInput = () => {
     switch (variant) {
@@ -23,6 +24,8 @@ export const Input = ({
             placeholder={placeholder}
             onChange={onChange}
             showVisibilityButton={showVisibilityButton}
+            onVisibilityButtonClick={onVisibilityButtonClick}
+            type={type}
           />
         );
       case "gradient":
@@ -42,23 +45,16 @@ export const Input = ({
 };
 
 const StandardInput = ({
+  type,
   value,
   placeholder,
   onChange,
   showVisibilityButton = false,
+  onVisibilityButtonClick = () => {},
 }) => {
   const backgroundColor =
     value.length > 0 ? colors.accent.blueDarker_20 : colors.base.white;
 
-  const [type, setType] = useState("text");
-
-  const handleVisibilityButtonClick = () => {
-    if (type === "text") {
-      setType("password");
-    } else {
-      setType("text");
-    }
-  };
   return (
     <div className={styles.container}>
       <input
@@ -75,11 +71,15 @@ const StandardInput = ({
 
       {showVisibilityButton ? (
         <button
+          type="button"
           style={{ marginTop: type === "password" ? 3 : 0 }}
           className={styles.visibility_button}
-          onClick={() => handleVisibilityButtonClick()}
+          onClick={() => onVisibilityButtonClick()}
         >
-          <img src={type === "password" ? visibility_off : visibility_on} />
+          <img
+            src={type === "password" ? visibility_off : visibility_on}
+            alt={type === "password" ? "Показати пароль" : "Приховати пароль"}
+          />
         </button>
       ) : null}
     </div>

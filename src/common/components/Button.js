@@ -3,6 +3,7 @@ import styles from "./Button.module.css";
 
 import google from "../../assets/icons/google-44.svg";
 import apple from "../../assets/icons/apple-44.svg";
+import facebook from "../../assets/icons/facebok-44.svg";
 
 export const Button = ({
   text = "Далі",
@@ -13,15 +14,41 @@ export const Button = ({
   variant = "standard",
   disabled = false,
   authWith = "google",
+  onClick = () => {},
+  id = "",
 }) => {
   const renderButton = () => {
     switch (variant) {
       case "standard":
-        return <StandardButton type={type} text={text} disabled={disabled} />;
+        return (
+          <StandardButton
+            type={type}
+            text={text}
+            disabled={disabled}
+            onClick={onClick}
+            id={id}
+          />
+        );
       case "accent":
-        return <AccentButton type={type} text={text} disabled={disabled} />;
+        return (
+          <AccentButton
+            type={type}
+            text={text}
+            disabled={disabled}
+            onClick={onClick}
+            id={id}
+          />
+        );
       case "gradient":
-        return <GradientButton type={type} text={text} disabled={disabled} />;
+        return (
+          <GradientButton
+            type={type}
+            text={text}
+            disabled={disabled}
+            onClick={onClick}
+            id={id}
+          />
+        );
       case "auth":
         return (
           <AuthButton
@@ -29,18 +56,29 @@ export const Button = ({
             text={text}
             disabled={disabled}
             authWith={authWith}
+            onClick={onClick}
+            id={id}
           />
         );
       default:
-        return <StandardButton type={type} text={text} disabled={disabled} />;
+        return (
+          <StandardButton
+            type={type}
+            text={text}
+            disabled={disabled}
+            onClick={onClick}
+          />
+        );
     }
   };
   return <>{renderButton()}</>;
 };
 
-const StandardButton = ({ text, type, disabled }) => {
+const StandardButton = ({ text, type, disabled, onClick, id }) => {
   return (
     <button
+      id={id}
+      onClick={(e) => onClick(e)}
       disabled={disabled}
       type={type}
       className={`${styles.button} ${styles.button_standard}`}
@@ -74,24 +112,33 @@ const GradientButton = ({ text, type, disabled }) => {
   );
 };
 
-const AuthButton = ({ type, disabled, authWith }) => {
+const AuthButton = ({ type, disabled, authWith, onClick }) => {
   const renderIcon = () => {
     switch (authWith) {
       case "google":
         return google;
       case "apple":
         return apple;
+      case "facebook":
+        return facebook;
       default:
         return google;
     }
   };
 
   return (
-    <button disabled={disabled} type={type} className={styles.button_auth}>
-      <img
-        alt={authWith === "google" ? "Гугл логотип" : "Епл логотип"}
-        src={renderIcon()}
-      />
-    </button>
+    <div className={styles.button_auth_background}>
+      <button
+        disabled={disabled}
+        type={type}
+        className={styles.button_auth}
+        onClick={(e) => onClick(e)}
+      >
+        <img
+          alt={authWith === "google" ? "Гугл логотип" : "Епл логотип"}
+          src={renderIcon()}
+        />
+      </button>
+    </div>
   );
 };

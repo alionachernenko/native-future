@@ -23,12 +23,8 @@ export const remoteConfig = getRemoteConfig(app);
 export const storage = getStorage(app);
 export const analytics = getAnalytics(app);
 
-// window.recaptchaVerifier = new RecaptchaVerifier(auth, "sign-in-button", {
-//   size: "invisible",
-//   callback: (response) => {
-//     console.log("reCAPTCHA solved", response);
-//   },
-// });
+auth.useDeviceLanguage();
+
 
 
 // export const appVerifier = window.recaptchaVerifier
