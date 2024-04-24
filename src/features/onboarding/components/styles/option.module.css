@@ -1,0 +1,40 @@
+.option {
+  font-family: 'e-Ukraine-Light', sans-serif;
+  background-color: white;
+  border: 2px solid #7B7BFF;
+  border-radius: 30px;
+  font-size: 16px;
+  line-height: 24px;
+
+  padding: 13px 20px;
+  position: relative;
+}
+
+.checked {
+  background-color: #DEDEFF;
+}
+
+.optionCheckBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.optionCheckBox input[type="checkbox"] {
+  display: none;
+}
+.boxIconChecked {
+  width: 40px;
+  height: 41px;
+  position: absolute;
+  right: 20px;
+  align-self: center;
+}
+
+.boxIconChecked img {
+  width: 100%;
+  height: 100%;
+}
+
+.boxLabel {
+  width: 80%;
+}
