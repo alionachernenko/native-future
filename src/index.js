@@ -8,8 +8,7 @@ import { StartPage } from "./features/init/pages/StartPage";
 import { Login } from "./features/authentication/pages/Login";
 import { SignUp } from "./features/authentication/pages/SignUp";
 import { Advantages } from "./features/advantages/pages/Advantages";
-//@ts-ignore
-import { Onboarding } from "./features/onboarding/pages/Onboarding";
+import { Onboarding } from "./features/onboarding/pages/onboarding";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import { Home } from "./home/pages/Home";
