@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 import { authenticationService } from "../authenticationService";
@@ -40,7 +40,10 @@ export const Login = () => {
         password
       );
 
-      navigate("/");
+      localStorage.setItem("id_token", user.getIdToken());
+      localStorage.setItem("uid", user.uid);
+
+      navigate("/home");
 
       console.log({ user });
     } catch (error) {
@@ -53,7 +56,11 @@ export const Login = () => {
 
     try {
       const user = await authenticationService.signInWithGoogle();
-      navigate("/");
+
+      localStorage.setItem("id_token", user.getIdToken());
+      localStorage.setItem("uid", user.uid);
+
+      navigate("/home");
 
       console.log({ user });
     } catch (error) {
@@ -66,7 +73,11 @@ export const Login = () => {
 
     try {
       const user = await authenticationService.signInWithFacebook();
-      navigate("/");
+
+      localStorage.setItem("id_token", user.getIdToken());
+      localStorage.setItem("uid", user.uid);
+
+      navigate("/home");
 
       console.log({ user });
     } catch (error) {
@@ -109,7 +120,7 @@ export const Login = () => {
               className={`${styles.button} ${styles.button_gradient}`}
             >
               Увійти через
-              <img src={diia_logo} alt="Дія" />
+              <img src={diia_logo} alt="Дія" width={32} height={32} />
             </button>
           </div>
           <p className={styles.login_with_provider}>Або увійти через</p>

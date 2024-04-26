@@ -1,7 +1,7 @@
 .barOuter {
-  width: 100%;
+  max-width: 358px;
   height: 22px;
-  border: 2px solid #9C9CFE;
+  border: 2px solid #9c9cfe;
   border-radius: 12px;
 
   box-sizing: border-box;
@@ -10,13 +10,13 @@
   margin-top: 72px;
 
   display: flex;
-  justify-content: center;
 }
 
 .barInner {
   height: 100%;
-  background-color: #5B5AEC;
+  background-color: #5b5aec;
   border-radius: 6px;
+  width: 300px;
 
   align-self: center;
 }

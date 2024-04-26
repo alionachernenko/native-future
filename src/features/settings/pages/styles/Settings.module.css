@@ -1,0 +1,194 @@
+@import url("../../../../common/colors/colors.css");
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 390px;
+  width: 100vw;
+  padding-bottom: 50px;
+  flex: 1;
+  padding: 0 16px;
+  position: relative;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;
+}
+
+.title {
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "e-Ukraine-Regular";
+  font-weight: 500;
+  margin-bottom: 24px;
+  margin-top: 63px;
+}
+
+.setting_switch_label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 74px;
+  height: 44px;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+  background-color: #2833d0;
+}
+
+.setting_switch_label_controller {
+  /* content: ""; */
+  position: absolute;
+  top: 2px;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.setting_container {
+  display: flex;
+}
+
+.settings_container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 53px;
+}
+
+.black_white_mode_button {
+  font-family: "e-Ukraine-Light";
+  font-size: 18px;
+  line-height: 24px;
+  border: none;
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: left;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: flex;
+  align-items: center;
+  text-decoration: underline;
+}
+
+.black_white_mode_button img {
+  margin-top: 3px;
+}
+
+.accessibility_settings {
+  display: flex;
+  gap: 12px;
+}
+
+.font_size_button {
+  width: 40px;
+  height: 40px;
+  color: var(--base_black);
+  border: 1px solid var(--base_black);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: transparent;
+  min-width: 40px;
+}
+
+.font_size_button:nth-child(1) span {
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "e-Ukraine-Light";
+}
+
+.font_size_button:nth-child(2) span {
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "e-Ukraine-Regular";
+}
+
+.font_size_button:nth-child(3) span {
+  font-size: 26px;
+  line-height: 34px;
+  font-family: "e-Ukraine-Regular";
+}
+
+.turn_accessibility_off_button {
+  display: flex;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "e-Ukraine-Light";
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border: 1px solid var(--base_black);
+}
+
+.other_settings_title {
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "e-Ukraine-Regular";
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.other_settings_buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 10px; /* Отступы между кнопками */
+}
+
+.other_settings_button {
+  height: 68px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+  background-color: transparent;
+  color: var(--base_black);
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "e-Ukraine-Regular";
+  background-color: white;
+  padding: 0;
+}
+
+/* Первые 4 кнопки занимают половину ширины контейнера */
+.other_settings_button_background:nth-child(1),
+.other_settings_button_background:nth-child(2),
+.other_settings_button_background:nth-child(3),
+.other_settings_button_background:nth-child(4) {
+  grid-column: span 1;
+}
+
+/* Последняя кнопка занимает всю ширину контейнера */
+.other_settings_button_background:nth-child(5) {
+  grid-column: span 2;
+}
+
+.other_settings_button_background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  background: linear-gradient(#79b0d3, #d3abd2, #a7b0c1);
+  border-radius: 12px;
+  /* padding: 1.5px; */
+  height: 72px;
+  padding: 0 2px;
+  color: var(--base_black);
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "e-Ukraine-Regular";
+  background-color: white;
+}
