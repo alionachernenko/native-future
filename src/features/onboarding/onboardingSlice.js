@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import defaultAvatar from "../../assets/avatars/Avatar-11.png";
 
 const initialState = {
   questions: {
@@ -6,7 +7,11 @@ const initialState = {
     motivation: [],
     topics: [],
   },
-  avatar: null,
+  avatar: {
+    image: defaultAvatar,
+    alt: "Бджола",
+    id: "Avatar-11",
+  },
   settings: {
     dyslexia_mode: false,
     listening_exercises: true,
@@ -14,7 +19,6 @@ const initialState = {
   },
   username: "",
 };
-
 
 const onboardingSlice = createSlice({
   name: "onboarding",
@@ -34,7 +38,7 @@ const onboardingSlice = createSlice({
     },
     setSettings: (state, action) => {
       state.settings = action.payload;
-      console.log(action.payload)
+      console.log(action.payload);
     },
     setUsername: (state, action) => {
       state.username = action.payload;

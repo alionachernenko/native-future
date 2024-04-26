@@ -15,6 +15,8 @@ import avatar7 from "../../../assets/avatars/Avatar-7.png";
 import avatar8 from "../../../assets/avatars/Avatar-8.png";
 import avatar9 from "../../../assets/avatars/Avatar-9.png";
 import avatar10 from "../../../assets/avatars/Avatar.png";
+import avatar11 from "../../../assets/avatars/Avatar-11.png";
+
 import skovoroda from "../../../assets/images/adv-ai.png";
 
 import { onboardingActions } from "../onboardingSlice";
@@ -247,6 +249,11 @@ const SelectAvatarStep = ({ setStep }) => {
 
   const avatars = [
     {
+      image: avatar11,
+      alt: "Бджола",
+      id: "Avatar-11",
+    },
+    {
       image: avatar1,
       alt: "Жінка з чорним середнім волоссям у фіолетовій рубашці",
       id: "Avatar-1",
@@ -310,7 +317,6 @@ const SelectAvatarStep = ({ setStep }) => {
         {avatars.map((avatar) => {
           const selected = avatar.alt === selectedAvatar?.alt;
 
-          console.log({ selected });
           return (
             <button
               className={styles.avatar_button}
