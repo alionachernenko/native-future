@@ -46,9 +46,10 @@ export const SignUp = () => {
         password
       );
 
-      navigate("/");
+      localStorage.setItem("id_token", user.getIdToken());
+      localStorage.setItem("uid", user.uid);
 
-      console.log({ user });
+      navigate("/onboarding", { state: { name, userId: user.uid } });
     } catch (e) {
       console.log("error", e);
     }
@@ -59,7 +60,11 @@ export const SignUp = () => {
 
     try {
       const user = await authenticationService.signInWithGoogle();
-      navigate("/");
+
+      localStorage.setItem("id_token", user.getIdToken());
+      localStorage.setItem("uid", user.uid);
+
+      navigate("/onboarding");
 
       console.log({ user });
     } catch (error) {
@@ -72,7 +77,8 @@ export const SignUp = () => {
 
     try {
       const user = await authenticationService.signInWithFacebook();
-      navigate("/");
+      localStorage.setItem("uid", user.uid);
+      navigate("/onboarding");
 
       console.log({ user });
     } catch (error) {

@@ -100,12 +100,13 @@ const AccentButton = ({ text, type, disabled }) => {
   );
 };
 
-const GradientButton = ({ text, type, disabled }) => {
+const GradientButton = ({ text, type, disabled, onClick }) => {
   return (
     <button
       disabled={disabled}
       type={type}
       className={`${styles.button} ${styles.button_gradient}`}
+      onClick={(e) => onClick(e)}
     >
       {text}
     </button>
