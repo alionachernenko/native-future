@@ -1,5 +1,5 @@
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
-import { auth, db } from "../../config";
+import { doc, setDoc, updateDoc } from "firebase/firestore";
+import { auth, db, storage } from "../../config";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -10,6 +10,7 @@ import {
   signInWithPopup,
   FacebookAuthProvider,
 } from "firebase/auth";
+import { getDownloadURL, ref } from "firebase/storage";
 
 const provider = new GoogleAuthProvider();
 const fbProvider = new FacebookAuthProvider();
@@ -20,7 +21,24 @@ const createUserDocument = async (name, email, id) => {
     email,
   });
 
+
   return userDoc;
+};
+
+const updateUserDocument = async (id, data) => {
+  // console.log({id, data})
+  const userDoc = await updateDoc(doc(db, "users", id), data);
+
+  return userDoc;
+};
+
+const createProfile = async (id, data) => {
+  const avatarId = data.avatar.id;
+  const avatarRef = ref(storage, `default_avatars/${avatarId}.png`);
+
+  const url = await getDownloadURL(ref(storage, avatarRef));
+
+  await updateUserDocument(id, { ...data, avatar: url });
 };
 
 const signUpUserWithEmailAndPassword = async (name, email, password) => {
@@ -96,4 +114,6 @@ export const authenticationService = {
   signInWithFacebook,
   signInWithPhone,
   createRecaptcha,
+  updateUserDocument,
+  createProfile,
 };
