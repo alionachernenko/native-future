@@ -1,4 +1,4 @@
-import { doc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db, storage } from "../../config";
 import {
   createUserWithEmailAndPassword,
@@ -21,12 +21,10 @@ const createUserDocument = async (name, email, id) => {
     email,
   });
 
-
   return userDoc;
 };
 
 const updateUserDocument = async (id, data) => {
-  // console.log({id, data})
   const userDoc = await updateDoc(doc(db, "users", id), data);
 
   return userDoc;
@@ -116,4 +114,5 @@ export const authenticationService = {
   createRecaptcha,
   updateUserDocument,
   createProfile,
+  createUserDocument
 };

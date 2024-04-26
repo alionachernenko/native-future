@@ -17,6 +17,10 @@ import { Words } from "./home/pages/Words";
 import { Grammar } from "./home/pages/Grammar";
 import { Chat } from "./home/pages/Chat";
 import { Settings } from "./features/settings/pages/Settings";
+import { Topic } from "./features/topics/pages/Topic";
+import { Error } from "./features/error/pages/Error";
+import { Empty } from "./features/error/pages/Empty";
+import { Article } from "./features/articles/pages/Article";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -37,9 +41,15 @@ const router = createBrowserRouter([
       { path: "main", element: <Main /> },
       { path: "words", element: <Words /> },
       { path: "grammar", element: <Grammar /> },
-      { path: "chat", element: <Chat /> },
+      // { path: "chat", element: <Chat /> },
+      { path: "gifts", element: <Empty /> },
+      { path: "article", element: <Article /> },
     ],
   },
+  { path: "/topic", element: <Topic /> },
+  { path: "/chat", element: <Chat /> },
+  { path: "*", element: <Error /> },
+  { path: "/empty", element: <Empty /> },
 ]);
 
 root.render(
