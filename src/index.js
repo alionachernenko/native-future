@@ -8,6 +8,7 @@ import { StartPage } from "./features/init/pages/StartPage";
 import { Login } from "./features/authentication/pages/Login";
 import { SignUp } from "./features/authentication/pages/SignUp";
 import { Advantages } from "./features/advantages/pages/Advantages";
+//@ts-ignore
 import { Onboarding } from "./features/onboarding/pages/Onboarding";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
@@ -29,7 +30,6 @@ const router = createBrowserRouter([
   { path: "signup", element: <SignUp /> },
   { path: "onboarding", element: <Onboarding /> },
   { path: "settings", element: <Settings /> },
-
 
   {
     path: "home",
