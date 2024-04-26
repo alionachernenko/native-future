@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { authenticationService } from './features/authentication/authenticationService';
 
 function App() {
   return (

@@ -1,0 +1,74 @@
+@import "../colors/colors.css";
+
+.button {
+  width: 100%;
+  max-width: 358px;
+
+  height: 48px;
+  padding: 0;
+
+  font-size: 18px;
+  line-height: 24px;
+  border-width: 1.5px;
+  border-style: solid;
+
+  background-color: transparent;
+  font-family: "e-Ukraine-Regular";
+}
+
+.button_standard {
+  background-color: var(--base_black);
+  color: var(--base_white);
+  border-color: var(--base_black);
+  font-family: "e-Ukraine-Regular";
+  font-weight: 400;
+}
+
+.button_accent {
+  background-color: var(--accent_blue-darker);
+  color: var(--base_white);
+  border-color: var(--base_black);
+}
+
+.button_gradient {
+  background-color: var(--base_white);
+  border-width: 1.5px;
+  border-style: solid;
+  border-image: linear-gradient(to right, #76afd4, #cfa9d3, #aab5bd) 1;
+  color: var(--base_black);
+  border-color: var(--base_black);
+}
+
+.button_auth_background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  background: linear-gradient(to right, #CCE5FF, #EED4E8, #E7EEF3);
+  border-radius: 34px;
+  /* padding: 1.5px; */
+  max-width: 173px;
+  height: 68px;
+  padding: 0 1.5px;
+}
+
+.button_auth {
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  background-color: var(--base_white);
+  border-radius: 34px;
+  border-color: var(--base_black);
+  background-origin: border-box;
+  background-clip: border-box;
+  border: none;
+  padding: 0;
+  height: 65px;
+  width: calc(100% - 1.5px);
+}
+
+.button_auth img {
+  pointer-events: none;
+}

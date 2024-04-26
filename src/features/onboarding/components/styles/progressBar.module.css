@@ -1,0 +1,22 @@
+.barOuter {
+  max-width: 358px;
+  height: 22px;
+  border: 2px solid #9c9cfe;
+  border-radius: 12px;
+
+  box-sizing: border-box;
+  padding: 4px;
+  margin-bottom: 24px;
+  margin-top: 72px;
+
+  display: flex;
+}
+
+.barInner {
+  height: 100%;
+  background-color: #5b5aec;
+  border-radius: 6px;
+  width: 300px;
+
+  align-self: center;
+}
