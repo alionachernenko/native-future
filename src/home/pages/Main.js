@@ -11,6 +11,9 @@ import { Link } from "react-router-dom";
 export const Main = () => {
   const user = useSelector((state) => state.user.user);
 
+  const currentLevelScore = user.points % 20;
+  const progressPercent = (currentLevelScore / 20) * 100;
+
   return (
     <div className={styles.container}>
       <div className={styles.name_container}>
@@ -27,15 +30,22 @@ export const Main = () => {
         <div>
           <div className={styles.stars_container}>
             <img src={star} width={24} height={24}></img>
-            <p>0</p>
+            <p>{user.points}</p>
           </div>
-          <button className={styles.gift_button}>Обрати нагороду</button>
+          <Link to="/home/gifts" className={styles.gift_button}>
+            Обрати нагороду
+          </Link>
         </div>
       </div>
       <div className={styles.level_container}>
-        <p className={styles.level}>Ти на 1 рівні</p>
+        <p className={styles.level}>
+          Ти на {Math.floor((user.points || 0) / 20) + 1} рівні
+        </p>
         <div className={styles.level_progress_container}>
-          <div className={styles.level_progress_inner}></div>
+          <div
+            className={styles.level_progress_inner}
+            style={{ width: `${progressPercent}%` }}
+          ></div>
         </div>
       </div>
       <div className={styles.streak_container}>
@@ -56,7 +66,10 @@ export const Main = () => {
         <p>Нові статті для тебе</p>
         <button>Більше статтей</button>
       </div>
-      <Link className={styles.article}>
+      <Link
+        className={styles.article}
+        to="/home/article?slug=results_20.04:_decision_of_the_congress"
+      >
         <img
           src={Article1}
           alt="Депутати стоять із прапорцями України"

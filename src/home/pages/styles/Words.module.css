@@ -1,0 +1,64 @@
+.container {
+  width: 100%;
+  flex: 1;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: scroll;
+  padding-bottom: 100px;
+}
+
+.my_words_btn {
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "e-Ukraine-Regular";
+  background: linear-gradient(#cce5ff, #eed4e8, #e7eef3);
+  border-radius: 22px;
+  border: 1.5px solid var(--accent_blue-darker--80);
+  padding: 8px 40px;
+  color: var(--base_black);
+  margin-left: auto;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow-x: scroll;
+  gap: 8px;
+  padding-bottom: 20px;
+  padding-top: 30px;
+
+  margin-bottom: 27px;
+}
+
+.title {
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "e-Ukraine-Regular";
+  font-weight: 500;
+}
+.words_in_progress_section {
+  margin-bottom: 32px;
+}
+
+.words_in_progress_empty {
+  height: 130px;
+  width: 130px;
+
+  background: linear-gradient(#cce5ff, #eed4e8, #e7eef3);
+  border: 1.5px solid #9c9cfe;
+  border-radius: 22px;
+  display: flex;
+  align-items: end;
+  padding: 14px;
+}
+
+.words_in_progress_empty p {
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "e-Ukraine-Regular";
+  max-width: 50%;
+  text-align: left;
+  margin-top: auto;
+}

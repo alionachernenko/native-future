@@ -29,6 +29,7 @@
 .stars_container {
   display: flex;
   gap: 9px;
+  margin-bottom: 10px;
 }
 
 .stars_container p {

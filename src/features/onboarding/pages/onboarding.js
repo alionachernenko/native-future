@@ -4,6 +4,7 @@ import styles from "./styles/onboarding.module.css";
 import { useEffect, useState } from "react";
 import arrowLeft from "../../../assets/icons/arrow_left-40.svg";
 import { useSelector, useDispatch } from "react-redux";
+import info from "../../../assets/icons/info.svg";
 
 import avatar1 from "../../../assets/avatars/Avatar-1.png";
 import avatar2 from "../../../assets/avatars/Avatar-2.png";
@@ -25,6 +26,7 @@ import { ReactComponent as Check } from "../../../assets/icons/Check.svg";
 import { ReactComponent as SpeechCloud } from "../../../assets/clouds/speech_cloud_register.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { authenticationService } from "../../authentication/authenticationService";
+import { InfoPopup } from "../../popup/InfoPopup";
 
 export const Onboarding = () => {
   const [step, setStep] = useState(1);
@@ -33,6 +35,7 @@ export const Onboarding = () => {
 
   const user = location?.state;
   const navigate = useNavigate();
+  const [showInfoPopup, setShowInfoPopup] = useState(false);
 
   useEffect(() => {
     const idToken = localStorage.getItem("id_token");
@@ -57,7 +60,13 @@ export const Onboarding = () => {
       case 5:
         return <CreateUsernameStep setStep={setStep} name={user?.name} />;
       case 6:
-        return <SettingsStep setStep={setStep} userId={user?.userId} />;
+        return (
+          <SettingsStep
+            setStep={setStep}
+            userId={user?.userId}
+            setShowInfoPopup={setShowInfoPopup}
+          />
+        );
       case 7:
         return <SuccessfullyRegistered setStep={setStep} />;
       default:
@@ -73,6 +82,15 @@ export const Onboarding = () => {
           step === 7 ? "linear-gradient(#CCE5FF, #EED4E8, #E7EEF3)" : "none",
       }}
     >
+      {showInfoPopup ? (
+        <InfoPopup
+          onClose={() => setShowInfoPopup(false)}
+          text={
+            "Вимкнення вправ на аудіювання не впливатиме на ваш прогрес навчання."
+          }
+        />
+      ) : null}
+
       <div className={styles.container}>
         {step > 1 && step !== 7 ? (
           <button
@@ -427,7 +445,7 @@ const CreateUsernameStep = ({ setStep, name }) => {
   );
 };
 
-const SettingsStep = ({ setStep, userId }) => {
+const SettingsStep = ({ setStep, userId, setShowInfoPopup }) => {
   const dispatch = useDispatch();
   const [settings, setSettings] = useState(
     useSelector((state) => state.onboarding.settings)
@@ -524,6 +542,17 @@ const SettingsStep = ({ setStep, userId }) => {
           }}
         >
           Вправи на аудіювання
+          <button
+            onClick={() => setShowInfoPopup(true)}
+            style={{
+              backgroundColor: "transparent",
+              padding: 10,
+              border: "none",
+              marginTop: 3,
+            }}
+          >
+            <img src={info} alt="Інформація" width={24} height={24} />
+          </button>
           <div
             className={styles.setting_switch_label}
             style={{

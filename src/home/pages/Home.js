@@ -27,9 +27,12 @@ import { colors } from "../../common/colors/colors";
 
 import { ReactComponent as CloudPolygon } from "../../assets/clouds/app_onb_cloud_polygon.svg";
 import { ReactComponent as Settings } from "../../assets/icons/settings.svg";
+import { ErrorPopup } from "../../features/error/components/ErrorPopup";
+import { Oval } from "react-loader-spinner";
 
 export const Home = () => {
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -59,7 +62,7 @@ export const Home = () => {
     },
     {
       id: "chat",
-      route: "chat",
+      route: "/chat",
       icon: MainTab,
       title: "Чат",
     },
@@ -77,11 +80,19 @@ export const Home = () => {
         const user = await userService.getUserDocument(uid);
         dispatch(userActions.setUser(user));
 
+        if (!user) {
+          navigate("/login");
+          return;
+        }
         setLoading(false);
         localStorage.setItem("user", user);
-        navigate("main");
+
+        if (location.pathname === "/home") {
+          navigate("main");
+        }
       } catch (e) {
         console.log(e);
+        setError(true);
       }
     };
 
@@ -90,42 +101,73 @@ export const Home = () => {
 
   const location = useLocation();
   if (loading) {
-    return <>loading</>;
+    return (
+      <Oval
+        visible={true}
+        height="70"
+        width="70"
+        color="#5B5AEC"
+        secondaryColor="#BDBDFF"
+        ariaLabel="oval-loading"
+        wrapperStyle={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+        wrapperClass=""
+      />
+    );
   }
 
   return (
     <div className={styles.page}>
+      {error ? <ErrorPopup /> : null}
       {!appOnboardingDone ? (
         <AppOnboarding setAppOnboardingDone={setAppOnboardingDone} />
       ) : null}
 
       <div className={styles.container}>
-        <Link
-          state={{ from: location.pathname }}
-          to={"/settings"}
-          style={{
-            position: "absolute",
-            top: 10,
-            left: 16,
-          }}
-        >
-          <Settings />
-        </Link>
+        {location.pathname !== "/home/grammar" &&
+        location.pathname !== "/home/gifts" &&
+        location.pathname !== "/home/article" ? (
+          <Link
+            state={{ from: location.pathname }}
+            to={"/settings"}
+            style={{
+              position: "absolute",
+              top: 10,
+              left: 16,
+            }}
+          >
+            <Settings />
+          </Link>
+        ) : null}
         <Outlet />
       </div>
       <nav className={styles.navbar}>
         <ul className={styles.tabbar}>
-          {tabs.map((tab) => (
-            <NavLink
-              to={tab.route}
-              className={({ isActive }) =>
-                isActive ? styles.navlink_active : styles.navlink
-              }
-            >
-              <img src={tab.icon} />
-              <p>{tab.title}</p>
-            </NavLink>
-          ))}
+          {tabs.map((tab) => {
+            if (tab.id === "chat") {
+              return (
+                <Link to={tab.route} className={styles.navlink}>
+                  <img src={tab.icon} />
+                  <p>{tab.title}</p>
+                </Link>
+              );
+            }
+            return (
+              <NavLink
+                to={tab.route}
+                className={({ isActive }) =>
+                  isActive ? styles.navlink_active : styles.navlink
+                }
+              >
+                <img src={tab.icon} />
+                <p>{tab.title}</p>
+              </NavLink>
+            );
+          })}
         </ul>
       </nav>
     </div>
