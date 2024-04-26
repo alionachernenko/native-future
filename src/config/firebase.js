@@ -24,5 +24,3 @@ export const storage = getStorage(app);
 export const analytics = getAnalytics(app);
 
 auth.useDeviceLanguage();
-
-// export const appVerifier = window.recaptchaVerifier
