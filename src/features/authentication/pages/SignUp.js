@@ -6,6 +6,8 @@ import { Button } from "../../../common/components/Button";
 import styles from "./styles/SignUp.module.css";
 import diia_logo from "../../../assets/icons/diia_logo-32.svg";
 import { authenticationService } from "../authenticationService";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../../config";
 
 export const SignUp = () => {
   const [name, setName] = useState("");
@@ -64,9 +66,21 @@ export const SignUp = () => {
       localStorage.setItem("id_token", user.getIdToken());
       localStorage.setItem("uid", user.uid);
 
-      navigate("/onboarding");
+      const userDoc = await getDoc(doc(db, "users", user.uid));
 
-      console.log({ user });
+      if (userDoc.exists() && userDoc.data().avatar) {
+        navigate("/home");
+      } else {
+        await authenticationService.createUserDocument(
+          user.displayName,
+          email,
+          user.uid
+        );
+
+        navigate("/onboarding", {
+          state: { name: user.displayName, userId: user.uid },
+        });
+      }
     } catch (error) {
       console.log("Error login with google ", e);
     }

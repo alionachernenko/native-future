@@ -52,7 +52,7 @@ export const Advantages = () => {
 
   return (
     <div className={styles.page}>
-      <div className={styles.container}>
+      <div className={styles.container} style={{ paddingBottom: 100 }}>
         <p className={styles.progress}>{`${step + 1}/6`}</p>
         {renderStep()}
       </div>

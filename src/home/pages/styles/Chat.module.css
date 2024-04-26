@@ -1,0 +1,65 @@
+.container {
+  width: 100%;
+  flex: 1;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: scroll;
+  padding-bottom: 100px;
+  max-width: 390px;
+  position: relative;
+  align-items: center;
+  padding-top: 77px;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  max-width: 100vw;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  max-width: 390px;
+  width: 100%;
+  padding-top: 23px;
+  display: flex;
+  justify-content: center;
+  background-color: #e7eef3;
+  z-index: 1111;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.header_title {
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "e-Ukraine-Regular";
+  font-weight: 500;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  padding: 14px 16px;
+  background-color: #bdbdff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer input {
+  width: 100%;
+  border: 1px solid #5b5aec;
+  border-radius: 28px;
+  height: 56px;
+  padding-left: 12px;
+  padding-right: 56px;
+  font-size: 14px;
+  line-height: 18px;
+  font-family: "e-Ukraine-Light";
+}
