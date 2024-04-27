@@ -173,6 +173,7 @@ export const Topic = () => {
       {error ? <ErrorPopup /> : null}
       <div className={styles.container}>
         <button
+          aria-label="Повернутися назад"
           onClick={() => {
             if (currentTask === 0) {
               navigate("/home/words");
@@ -188,12 +189,7 @@ export const Topic = () => {
             padding: 0,
           }}
         >
-          <img
-            src={arrow_left}
-            width={40}
-            height={40}
-            alt="Стрілка вліво, кнопка назад"
-          />
+          <img src={arrow_left} width={40} height={40} alt="Стрілка вліво" />
         </button>
         <h1 className={styles.title}>
           Тема: {topicName}. {task?.name || "Тренування"}
@@ -258,6 +254,7 @@ const Vocabulary = ({
   return (
     <>
       <img
+        alt={task?.imageAlt || ""}
         src={task?.image}
         width={238}
         height={238}
@@ -295,6 +292,7 @@ const Vocabulary = ({
           return (
             <div className={styles.option_button_container}>
               <button
+                aria-label={`Обрати варіант ${option.title}`}
                 className={styles.option_button}
                 onClick={() => handleChooseAnswer(option)}
                 style={{
@@ -330,6 +328,7 @@ const ImageWord = ({
   return (
     <>
       <img
+        alt={task?.imageAlt || ""}
         src={task.image}
         width={238}
         height={238}
@@ -345,6 +344,7 @@ const ImageWord = ({
         {task.options.map((option) => (
           <div className={styles.option_button_container}>
             <button
+              aria-label={`Обрати варіант ${option.title}`}
               className={styles.option_button}
               onClick={() => handleChooseAnswer(option)}
               style={{
@@ -379,6 +379,7 @@ const WordWord = ({ task, setCurrentTask, setPoints, answers, setAnswers }) => {
         {task.options.map((option) => (
           <div className={styles.option_button_container}>
             <button
+              aria-label={`Обрати варіант ${option.title}`}
               className={styles.option_button}
               onClick={() => handleChooseAnswer(option)}
               style={{
@@ -439,6 +440,12 @@ const WordTranslate = ({
       </div>
       <form>
         <div className={styles.input_background}>
+          <label
+            style={{ visibility: "hidden", width: 0, height: 0 }}
+            htmlFor="nickname"
+          >
+            Твоя відповідь
+          </label>
           <input
             placeholder="Напиши відповідь тут"
             className={styles.input}
@@ -499,7 +506,12 @@ const Results = ({ points }) => {
           marginBottom: 41,
         }}
       >
-        <img src={skovoroda} width={238} height={238} />
+        <img
+          src={skovoroda}
+          width={238}
+          height={238}
+          alt="Григорій Сковорода, намальований у 3D форматі"
+        />
       </div>
       <div
         style={{
@@ -549,6 +561,7 @@ const words = {
         image: airfield,
         title: "Airfield",
         subtitle: "аєродром",
+        imageAlt: "Намальований аєродром",
       },
       {
         type: "image_word",
@@ -572,6 +585,7 @@ const words = {
           },
         ],
         image: airfield,
+        imageAlt: "Намальований аєродром",
       },
       {
         type: "word_word",

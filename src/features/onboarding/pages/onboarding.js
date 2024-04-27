@@ -94,10 +94,11 @@ export const Onboarding = () => {
       <div className={styles.container}>
         {step > 1 && step !== 7 ? (
           <button
+            aria-label="Перейти до попереднього кроку"
             className={styles.back_button}
             onClick={() => setStep((prev) => prev - 1)}
           >
-            <img src={arrowLeft} />
+            <img src={arrowLeft} alt="Стрілка ліворуч" />
           </button>
         ) : null}
         <ProgressBar step={step} />
@@ -148,7 +149,11 @@ const SelectLevelStep = ({ setStep }) => {
           );
         })}
       </div>
-      <button className={styles.goNext} onClick={handleNextClick}>
+      <button
+        aria-label="Перейти до наступного кроку"
+        className={styles.goNext}
+        onClick={handleNextClick}
+      >
         Далі
       </button>
     </>
@@ -197,7 +202,12 @@ const SelectMotivationStep = ({ setStep }) => {
           );
         })}
       </div>
-      <button className={styles.goNext} onClick={handleNextClick}>
+
+      <button
+        aria-label="Перейти до наступного кроку"
+        className={styles.goNext}
+        onClick={handleNextClick}
+      >
         Далі
       </button>
     </>
@@ -252,7 +262,12 @@ const SelectTopicsStep = ({ setStep }) => {
           );
         })}
       </div>
-      <button className={styles.goNext} onClick={handleNextClick}>
+
+      <button
+        className={styles.goNext}
+        onClick={handleNextClick}
+        aria-label="Перейти до наступного кроку"
+      >
         Далі
       </button>
     </>
@@ -338,6 +353,7 @@ const SelectAvatarStep = ({ setStep }) => {
 
           return (
             <button
+              aria-label="Обрати аватар"
               className={styles.avatar_button}
               onClick={() => setSelectedAvatar(avatar)}
             >
@@ -385,6 +401,7 @@ const SelectAvatarStep = ({ setStep }) => {
         className={styles.goNext}
         onClick={handleNextStep}
         disabled={!selectedAvatar}
+        aria-label="Перейти до наступного кроку"
       >
         Далі
       </button>
@@ -424,7 +441,11 @@ const CreateUsernameStep = ({ setStep, name }) => {
           className={styles.selected_avatar}
         />
         <div className={styles.username_input_background}>
+          <label style={{ visibility: "hidden", width: 0, height: 0 }} htmlFor="nickname">
+            Нікнейм
+          </label>
           <input
+            id="nickname"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             type="text"
@@ -433,12 +454,17 @@ const CreateUsernameStep = ({ setStep, name }) => {
           />
         </div>
         <button
+          aria-label="Згенерувати нікнейм"
           className={styles.generate_name_button}
           onClick={handleGenerateRandomName}
         >
-          Згенерувати імʼя
+          Згенерувати нікнейм
         </button>
-        <button className={styles.goNext} onClick={handleNextStep}>
+        <button
+          className={styles.goNext}
+          aria-label="Перейти до наступного кроку"
+          onClick={handleNextStep}
+        >
           Далі
         </button>
       </div>
@@ -501,7 +527,14 @@ const SettingsStep = ({ setStep, userId, setShowInfoPopup }) => {
   return (
     <>
       <h1 className={styles.title}>Налаштуй Діє.Слово під себе</h1>
-      <div style={{ display: "flex", flexDirection: "column", gap: 24, position: 'relative' }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 24,
+          position: "relative",
+        }}
+      >
         <label
           style={{
             display: "flex",
@@ -533,6 +566,7 @@ const SettingsStep = ({ setStep, userId, setShowInfoPopup }) => {
           </div>
         </label>
         <button
+          aria-label="Показати інформацію про вправи на аудіювання"
           onClick={(e) => {
             e.stopPropagation();
 
@@ -547,10 +581,10 @@ const SettingsStep = ({ setStep, userId, setShowInfoPopup }) => {
             marginTop: 3,
             position: "absolute",
             top: 75,
-            right: 85
+            right: 85,
           }}
         >
-          <img src={info} alt="Інформація" width={24} height={24} />
+          <img src={info} alt="Знак оклику в кружечку" width={24} height={24} />
         </button>
         <label
           style={{
@@ -613,7 +647,11 @@ const SettingsStep = ({ setStep, userId, setShowInfoPopup }) => {
           </div>
         </label>
       </div>
-      <button className={styles.goNext} onClick={handleNextStep}>
+      <button
+        className={styles.goNext}
+        onClick={handleNextStep}
+        aria-label="Перейти до наступного кроку"
+      >
         Далі
       </button>
     </>
@@ -630,7 +668,12 @@ const SuccessfullyRegistered = () => {
     <>
       <h1 className={styles.title}>Ти успішно зареєструвався!</h1>
       <div className={styles.skovoroda_container}>
-        <img src={skovoroda} width={239} height={239} />
+        <img
+          src={skovoroda}
+          width={239}
+          height={239}
+          alt="Зображення Григорія сковороди, намальоване в 3D форматі"
+        />
       </div>
       <div style={{ position: "absolute", left: 16, top: 460 }}>
         <SpeechCloud />
@@ -648,7 +691,12 @@ const SuccessfullyRegistered = () => {
           Бери вершину і матимеш середину!
         </p>
       </div>
-      <button className={styles.goNext} onClick={handleGoHome}>
+
+      <button
+        className={styles.goNext}
+        onClick={handleGoHome}
+        aria-label="Перейти на домашню сторінку"
+      >
         Перейти до навчання
       </button>
     </>

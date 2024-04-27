@@ -130,11 +130,12 @@ export const Login = () => {
               onClick={(e) => handleLoginWithEmail(e)}
             />
             <button
+              aria-label="Авторизуватися через Дію"
               type="button"
               className={`${styles.button} ${styles.button_gradient}`}
             >
               Увійти через
-              <img src={diia_logo} alt="Дія" width={32} height={32} />
+              <img src={diia_logo} alt="Логотип Дії" width={32} height={32} />
             </button>
           </div>
           <p className={styles.login_with_provider}>Або увійти через</p>

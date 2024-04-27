@@ -47,24 +47,28 @@ export const Home = () => {
       route: "main",
       icon: ChatTab,
       title: "Головна",
+      iconAlt: "Стилізована бджола",
     },
     {
       id: "words",
       route: "words",
       icon: GrammarTab,
       title: "Слова",
+      iconAlt: "3 картки",
     },
     {
       id: "grammar",
       route: "/empty",
       icon: WordsTab,
       title: "Граматика",
+      iconAlt: "Відкрита книжка",
     },
     {
       id: "chat",
       route: "/chat",
       icon: MainTab,
       title: "Чат",
+      iconAlt: "Повідомлення",
     },
   ];
 
@@ -153,7 +157,7 @@ export const Home = () => {
                 if (tab.id === "chat") {
                   return (
                     <Link to={tab.route} className={styles.navlink}>
-                      <img src={tab.icon} />
+                      <img src={tab.icon} alt={tab.iconAlt} />
                       <p>{tab.title}</p>
                     </Link>
                   );
@@ -165,7 +169,7 @@ export const Home = () => {
                       isActive ? styles.navlink_active : styles.navlink
                     }
                   >
-                    <img src={tab.icon} />
+                    <img src={tab.icon} alt={tab.iconAlt} />
                     <p>{tab.title}</p>
                   </NavLink>
                 );
@@ -282,7 +286,12 @@ const AppOnboardingTooltip = ({
           gap: 10,
         }}
       >
-        <img src={skovoroda} width={82} height={82} />
+        <img
+          src={skovoroda}
+          width={82}
+          height={82}
+          alt="Григорій Сковорода, намальований у 3D форматі"
+        />
         <p
           style={{
             fontSize: 14,
@@ -345,10 +354,15 @@ const FirstHighlight = () => {
         <img src={user.avatar} width={102} height={102} alt="Твій аватар" />
         <div>
           <div className={styles_main.stars_container}>
-            <img src={star} width={24} height={24}></img>
+            <img src={star} width={24} height={24} alt="Зірочка" />
             <p>0</p>
           </div>
-          <button className={styles_main.gift_button}>Обрати нагороду</button>
+          <button
+            aria-label="Перейти до магазину"
+            className={styles_main.gift_button}
+          >
+            Обрати нагороду
+          </button>
         </div>
       </div>
     </div>

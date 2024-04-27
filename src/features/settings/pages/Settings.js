@@ -63,6 +63,7 @@ export const Settings = () => {
     >
       <div className={styles.container}>
         <button
+          aria-label="Повернутися на домашню сторінку"
           onClick={() => navigate(location.state.from)}
           style={{
             position: "absolute",
@@ -72,12 +73,7 @@ export const Settings = () => {
             padding: 0,
           }}
         >
-          <img
-            src={arrow_left}
-            width={40}
-            height={40}
-            alt="Стрілка вліво, кнопка назад"
-          />
+          <img src={arrow_left} width={40} height={40} alt="Стрілка вліво" />
         </button>
         <h2
           className={styles.title}
@@ -96,6 +92,7 @@ export const Settings = () => {
             />
           ) : (
             <button
+              aria-label="Показати налаштування доступності, увімкнути контрастний режим"
               className={styles.black_white_mode_button}
               style={{
                 fontFamily: settings.dyslexia_mode
@@ -227,16 +224,17 @@ export const Settings = () => {
 const AccessibilitySettings = ({ handleChangeBlackWhiteMode }) => {
   return (
     <div className={styles.accessibility_settings}>
-      <button className={styles.font_size_button}>
+      <button className={styles.font_size_button} aria-label="Змінити розмір шрифта на маленький">
         <span>A</span>
       </button>
-      <button className={styles.font_size_button}>
+      <button className={styles.font_size_button} aria-label="Змінити розмір шрифта на середній">
         <span>A</span>
       </button>
-      <button className={styles.font_size_button}>
+      <button className={styles.font_size_button} aria-label="Змінити розмір шрифта на великий">
         <span>A</span>
       </button>
       <button
+      aria-label="Вимкнути контрастний режим та повернутися до звичайної версії сайту"
         className={styles.turn_accessibility_off_button}
         onClick={handleChangeBlackWhiteMode}
       >

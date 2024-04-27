@@ -20,12 +20,7 @@ export const Empty = () => {
             left: 16,
           }}
         >
-          <img
-            src={arrow_left}
-            width={40}
-            height={40}
-            alt="Стрілка вліво, кнопка назад"
-          />
+          <img src={arrow_left} width={40} height={40} alt="Стрілка вліво" />
         </button>
         <div
           style={{
@@ -64,7 +59,12 @@ export const Empty = () => {
             right: 0,
           }}
         >
-          <img src={skovoroda_cloud} alt="Сковорода" width={375} height={395} />
+          <img
+            src={skovoroda_cloud}
+            alt="Зображення Григорія Сковороди, намальоване у 3D формати"
+            width={375}
+            height={395}
+          />
           <p
             style={{
               fontSize: 14,

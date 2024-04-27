@@ -29,7 +29,7 @@ export const Main = () => {
         <img src={user.avatar} width={102} height={102} alt="Твій аватар" />
         <div>
           <div className={styles.stars_container}>
-            <img src={star} width={24} height={24}></img>
+            <img src={star} width={24} height={24} alt="Зірочка" />
             <p>{user.points || 0}</p>
           </div>
           <Link to="/empty" className={styles.gift_button}>
@@ -64,7 +64,7 @@ export const Main = () => {
       </div>
       <div className={styles.articles_header}>
         <p>Нові статті для тебе</p>
-        <button>Більше статтей</button>
+        <button aria-label="Показати всі статті">Більше статей</button>
       </div>
       <Link
         className={styles.article}
@@ -72,7 +72,7 @@ export const Main = () => {
       >
         <img
           src={Article1}
-          alt="Депутати стоять із прапорцями України"
+          alt="Депутати аплодують із прапорцями України в руках"
           width={138}
           height={138}
         />

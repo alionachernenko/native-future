@@ -14,10 +14,9 @@ export const Article = () => {
           // position: "fixed",
           top: 0,
           left: 0,
-          width: "100vw",
           paddingTop: 14,
           paddingBottom: 14,
-          paddingLeft: 16,
+          paddingLeft: 0,
           paddingRight: 0,
           display: "flex",
           justifyContent: "space-between",
@@ -28,6 +27,7 @@ export const Article = () => {
         }}
       >
         <button
+          aria-label="Повернутися на головну сторінку"
           onClick={() => navigate(location?.state?.from || "/home/main")}
           style={{
             backgroundColor: "transparent",
@@ -35,14 +35,14 @@ export const Article = () => {
             padding: 0,
           }}
         >
-          <img
-            src={arrow_left}
-            width={40}
-            height={40}
-            alt="Стрілка вліво, кнопка назад"
-          />
+          <img src={arrow_left} width={40} height={40} alt="Стрілка вліво" />
         </button>
-        <button className={styles.more_button}>Більше статей</button>
+        <button
+          aria-label="Перейти на сторінку з усіма статтями"
+          className={styles.more_button}
+        >
+          Більше статей
+        </button>
       </header>
       <img
         src={cover}

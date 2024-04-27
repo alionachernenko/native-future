@@ -15,10 +15,16 @@ export const Words = () => {
 
   return (
     <div className={styles.container}>
-      <button className={styles.my_words_btn}>Мої слова</button>
+      <button
+        aria-label="Перейти до слів, завантажених мною"
+        className={styles.my_words_btn}
+      >
+        Мої слова
+      </button>
       <div className={styles.filters}>
         {filters.map((filter, index) => (
           <button
+            aria-label={`Відобразити слова категорії ${filter}`}
             style={{
               padding: "12px 16px",
               fontSize: 14,
@@ -65,6 +71,7 @@ export const Words = () => {
           }}
         >
           <button
+            aria-label="Відобразити нові слова"
             className={styles.words_in_progress_empty}
             style={{ color: colors.base.black }}
           >

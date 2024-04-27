@@ -12,7 +12,7 @@ export const Error = () => {
       <div className={styles.container}>
         <img
           src={robot}
-          alt="Сумний робот блакитного кольору"
+          alt="Сумний робот блакитного кольору намальований у 3D стилі"
           width={206}
           height={296}
           style={{

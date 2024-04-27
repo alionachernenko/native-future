@@ -135,7 +135,7 @@ export const SignUp = () => {
               className={`${styles.button} ${styles.button_gradient}`}
             >
               Зареєструватися з
-              <img src={diia_logo} alt="Дія" />
+              <img src={diia_logo} alt="Логотип Дії" />
             </button>
           </div>
           <p className={styles.login_with_provider}>Зареєструватись через</p>

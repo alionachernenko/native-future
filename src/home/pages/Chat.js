@@ -144,6 +144,7 @@ export const Chat = () => {
       <div className={styles.container}>
         <div className={styles.header}>
           <button
+            aria-label={`Повернутися назад`}
             onClick={() => navigate(location?.state?.from || "/home")}
             style={{
               position: "absolute",
@@ -154,15 +155,11 @@ export const Chat = () => {
               padding: 0,
             }}
           >
-            <img
-              src={arrow_left}
-              width={40}
-              height={40}
-              alt="Стрілка вліво, кнопка назад"
-            />
+            <img src={arrow_left} width={40} height={40} alt="Стрілка вліво" />
           </button>
           <h1 className={styles.header_title}>Skovoroda чат</h1>
           <button
+            aria-label="Показати інформацію про чат"
             onClick={() => setShowInfoPopup(true)}
             style={{
               backgroundColor: "transparent",
@@ -171,7 +168,7 @@ export const Chat = () => {
               marginTop: 3,
             }}
           >
-            <img src={info} alt="Інформація про чат" width={24} height={24} />
+            <img src={info} alt="Знак оклику" width={24} height={24} />
           </button>
         </div>
 
@@ -197,7 +194,12 @@ export const Chat = () => {
                 marginBottom: 41,
               }}
             >
-              <img src={skovoroda} width={238} height={238} />
+              <img
+                src={skovoroda}
+                width={238}
+                height={238}
+                alt="Григорій Сковорода, намальований у 3D форматі"
+              />
             </div>
             <div
               style={{
@@ -247,7 +249,7 @@ export const Chat = () => {
                     src={sender === "ChatGPT" ? skovoroda_grad : user?.avatar}
                     alt={
                       sender === "ChatGPT"
-                        ? "Картинка сковороди"
+                        ? "Григорій Сковорода, намальований у 3D форматі"
                         : "Твій аватар"
                     }
                   />
@@ -309,7 +311,7 @@ export const Chat = () => {
                 }}
                 onClick={handleFinishPractice}
               >
-                <img src={quit} width={40} height={40} alt="Вихід із чату" />
+                <img src={quit} width={40} height={40} alt="Вихід" />
               </button>
               <form
                 style={{ position: "relative", flexGrow: 1 }}
@@ -385,7 +387,12 @@ const Finished = () => {
           marginBottom: 41,
         }}
       >
-        <img src={skovoroda} width={238} height={238} />
+        <img
+          src={skovoroda}
+          width={238}
+          height={238}
+          alt="Григорій Сковорода, намальований у 3D форматі"
+        />
       </div>
       <div
         style={{

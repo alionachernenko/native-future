@@ -75,6 +75,9 @@ const StandardInput = ({
           style={{ marginTop: type === "password" ? 3 : 0 }}
           className={styles.visibility_button}
           onClick={() => onVisibilityButtonClick()}
+          aria-label={`${
+            type === "password" ? "Показати" : "Приховати"
+          } пароль`}
         >
           <img
             src={type === "password" ? visibility_off : visibility_on}

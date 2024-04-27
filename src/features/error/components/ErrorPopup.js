@@ -23,7 +23,7 @@ export const ErrorPopup = () => {
             alignItems: "center",
           }}
         >
-          <img src={error} alt="Помилка" />
+          <img src={error} alt="Знак оклику на жовтому фоні" />
           <p
             style={{
               fontSize: 14,
