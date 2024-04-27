@@ -48,7 +48,7 @@ export const Topic = () => {
         userActions.setUser({
           ...user,
           topicsInProgress: [
-            ...(user.topicsInProgress || []),
+            ...(user?.topicsInProgress || []),
             {
               id: "military",
               title: "Military",

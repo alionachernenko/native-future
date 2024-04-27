@@ -78,8 +78,8 @@ export const Words = () => {
             <p>Нові слова</p>
           </button>
 
-          {user.topicsInProgress
-            ? user.topicsInProgress.map((topic) => {
+          {user?.topicsInProgress
+            ? user?.topicsInProgress.map((topic) => {
                 return (
                   <Link
                     to={`/topic?name=${topic.title}`}

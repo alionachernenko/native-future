@@ -441,7 +441,10 @@ const CreateUsernameStep = ({ setStep, name }) => {
           className={styles.selected_avatar}
         />
         <div className={styles.username_input_background}>
-          <label style={{ visibility: "hidden", width: 0, height: 0 }} htmlFor="nickname">
+          <label
+            style={{ visibility: "hidden", width: 0, height: 0 }}
+            htmlFor="nickname"
+          >
             Нікнейм
           </label>
           <input
@@ -464,6 +467,7 @@ const CreateUsernameStep = ({ setStep, name }) => {
           className={styles.goNext}
           aria-label="Перейти до наступного кроку"
           onClick={handleNextStep}
+          disabled={username.length === 0}
         >
           Далі
         </button>
