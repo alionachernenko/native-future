@@ -135,6 +135,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 14px;
+  gap: 12px;
 }
 
 .articles_header p {

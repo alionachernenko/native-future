@@ -60,7 +60,7 @@ export const Empty = () => {
         <div
           style={{
             position: "absolute",
-            bottom: 70,
+            bottom: 0,
             right: 0,
           }}
         >

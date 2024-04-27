@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   flex: 1;
-  padding-top: 73px;
+  /* padding-top: 73px; */
   padding-left: 16px;
   padding-right: 16px;
   display: flex;

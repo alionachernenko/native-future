@@ -56,7 +56,7 @@ export const Home = () => {
     },
     {
       id: "grammar",
-      route: "grammar",
+      route: "/empty",
       icon: WordsTab,
       title: "Граматика",
     },
@@ -145,31 +145,34 @@ export const Home = () => {
         ) : null}
         <Outlet />
       </div>
-      <nav className={styles.navbar}>
-        <ul className={styles.tabbar}>
-          {tabs.map((tab) => {
-            if (tab.id === "chat") {
-              return (
-                <Link to={tab.route} className={styles.navlink}>
-                  <img src={tab.icon} />
-                  <p>{tab.title}</p>
-                </Link>
-              );
-            }
-            return (
-              <NavLink
-                to={tab.route}
-                className={({ isActive }) =>
-                  isActive ? styles.navlink_active : styles.navlink
+      {location.pathname !== "/home/grammar" &&
+        location.pathname !== "/home/gifts" && (
+          <nav className={styles.navbar}>
+            <ul className={styles.tabbar}>
+              {tabs.map((tab) => {
+                if (tab.id === "chat") {
+                  return (
+                    <Link to={tab.route} className={styles.navlink}>
+                      <img src={tab.icon} />
+                      <p>{tab.title}</p>
+                    </Link>
+                  );
                 }
-              >
-                <img src={tab.icon} />
-                <p>{tab.title}</p>
-              </NavLink>
-            );
-          })}
-        </ul>
-      </nav>
+                return (
+                  <NavLink
+                    to={tab.route}
+                    className={({ isActive }) =>
+                      isActive ? styles.navlink_active : styles.navlink
+                    }
+                  >
+                    <img src={tab.icon} />
+                    <p>{tab.title}</p>
+                  </NavLink>
+                );
+              })}
+            </ul>
+          </nav>
+        )}
     </div>
   );
 };

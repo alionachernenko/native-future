@@ -165,4 +165,9 @@ input {
 
 button {
   cursor: pointer;
+  color: '#181818'
+}
+
+button p{
+  color: '#181818'
 }

@@ -30,6 +30,7 @@ export const Words = () => {
               opacity: index === 2 ? 0.4 : 1,
               backgroundColor: index === 2 ? "#DEDEFF" : "#BDBDFF",
               position: "relative",
+              color: colors.base.black,
             }}
           >
             {filter}
@@ -63,7 +64,10 @@ export const Words = () => {
             width: "100%",
           }}
         >
-          <button className={styles.words_in_progress_empty}>
+          <button
+            className={styles.words_in_progress_empty}
+            style={{ color: colors.base.black }}
+          >
             <p>Нові слова</p>
           </button>
 

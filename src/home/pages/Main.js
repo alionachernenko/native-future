@@ -32,7 +32,7 @@ export const Main = () => {
             <img src={star} width={24} height={24}></img>
             <p>{user.points || 0}</p>
           </div>
-          <Link to="/home/gifts" className={styles.gift_button}>
+          <Link to="/empty" className={styles.gift_button}>
             Обрати нагороду
           </Link>
         </div>
