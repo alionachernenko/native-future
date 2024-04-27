@@ -30,7 +30,7 @@ export const Main = () => {
         <div>
           <div className={styles.stars_container}>
             <img src={star} width={24} height={24}></img>
-            <p>{user.points}</p>
+            <p>{user.points || 0}</p>
           </div>
           <Link to="/home/gifts" className={styles.gift_button}>
             Обрати нагороду

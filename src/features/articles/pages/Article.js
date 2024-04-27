@@ -13,14 +13,18 @@ export const Article = () => {
         style={{
           position: "fixed",
           top: 0,
-          width: "100%",
-          padding: "14px 0",
+          left: 0,
+          width: "100vw",
+          paddingTop: 14,
+          paddingBottom: 14,
+          paddingLeft: 16,
+          paddingRight: 0,
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          width: "100%",
           backgroundColor: "#e7eef3",
           maxWidth: 358,
+          boxSizing: "border-box",
         }}
       >
         <button
@@ -47,6 +51,8 @@ export const Article = () => {
         alt="Депутати аплодують стоячи з прапорцями України в руках"
         style={{
           marginBottom: 12,
+          width: "100%",
+          height: "auto",
         }}
       />
       <p
@@ -108,7 +114,5 @@ export const Article = () => {
 };
 
 const Test = () => {
-    const questions = [
-        {}
-    ]
-}
+  const questions = [{}];
+};
