@@ -55,7 +55,11 @@ export const Settings = () => {
   return (
     <div
       className={styles.page}
-      style={settings.black_white_mode ? { filter: "grayscale(100%)" } : null}
+      style={
+        settings.black_white_mode
+          ? { filter: "grayscale(100%)", backgroundColor: "white" }
+          : null
+      }
     >
       <div className={styles.container}>
         <button
@@ -75,7 +79,16 @@ export const Settings = () => {
             alt="Стрілка вліво, кнопка назад"
           />
         </button>
-        <h2 className={styles.title}>Налаштуй Діє.Слово під себе</h2>
+        <h2
+          className={styles.title}
+          style={{
+            fontFamily: settings.dyslexia_mode
+              ? "Inclusion"
+              : "e-Ukraine-Regular",
+          }}
+        >
+          Налаштуй Діє.Слово під себе
+        </h2>
         <div className={styles.settings_container}>
           {settings.black_white_mode ? (
             <AccessibilitySettings
@@ -84,6 +97,11 @@ export const Settings = () => {
           ) : (
             <button
               className={styles.black_white_mode_button}
+              style={{
+                fontFamily: settings.dyslexia_mode
+                  ? "Inclusion"
+                  : "e-Ukraine-Light",
+              }}
               onClick={handleChangeBlackWhiteMode}
             >
               Налаштування доступності
@@ -95,7 +113,9 @@ export const Settings = () => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              fontFamily: "e-Ukraine-Light",
+              fontFamily: settings.dyslexia_mode
+                ? "Inclusion"
+                : "e-Ukraine-Light",
               fontSize: 18,
               lineHeight: "24px",
               paddingTop: 12,
@@ -138,6 +158,9 @@ export const Settings = () => {
               paddingBottom: 12,
               paddingRight: 12,
               paddingLeft: 0,
+              fontFamily: settings.dyslexia_mode
+                ? "Inclusion"
+                : "e-Ukraine-Light",
             }}
           >
             Вправи на аудіювання
@@ -163,7 +186,16 @@ export const Settings = () => {
             </div>
           </label>
         </div>
-        <h2 className={styles.other_settings_title}>Розширені налаштування</h2>
+        <h2
+          className={styles.other_settings_title}
+          style={{
+            fontFamily: settings.dyslexia_mode
+              ? "Inclusion"
+              : "e-Ukraine-Regular",
+          }}
+        >
+          Розширені налаштування
+        </h2>
         <div className={styles.other_settings_buttons}>
           {otherSettings.map((setting) => (
             <div
@@ -174,7 +206,14 @@ export const Settings = () => {
                   : {}
               }
             >
-              <button className={styles.other_settings_button}>
+              <button
+                className={styles.other_settings_button}
+                style={{
+                  fontFamily: settings.dyslexia_mode
+                    ? "Inclusion"
+                    : "e-Ukraine-Regular",
+                }}
+              >
                 {setting.title}
               </button>
             </div>

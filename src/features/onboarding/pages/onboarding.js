@@ -212,6 +212,7 @@ const SelectTopicsStep = ({ setStep }) => {
   const dispatch = useDispatch();
 
   const options = [
+    "Військова справа",
     "Спорт",
     "Кулінарія",
     "Подорожі",
@@ -428,7 +429,7 @@ const CreateUsernameStep = ({ setStep, name }) => {
             onChange={(e) => setUsername(e.target.value)}
             type="text"
             className={styles.username_input}
-            placeholder="@Введи імʼя"
+            placeholder="@Введи нікнейм"
           />
         </div>
         <button
@@ -463,7 +464,8 @@ const SettingsStep = ({ setStep, userId, setShowInfoPopup }) => {
     );
   };
 
-  const handleChangeListeningExercises = () => {
+  const handleChangeListeningExercises = (e) => {
+    e.stopPropagation();
     setSettings((prev) => ({
       ...prev,
       listening_exercises: !prev.listening_exercises,
@@ -499,7 +501,7 @@ const SettingsStep = ({ setStep, userId, setShowInfoPopup }) => {
   return (
     <>
       <h1 className={styles.title}>Налаштуй Діє.Слово під себе</h1>
-      <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 24, position: 'relative' }}>
         <label
           style={{
             display: "flex",
@@ -530,7 +532,26 @@ const SettingsStep = ({ setStep, userId, setShowInfoPopup }) => {
             />
           </div>
         </label>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
 
+            if (e.target !== e.currentTarget) {
+              setShowInfoPopup(true);
+            }
+          }}
+          style={{
+            backgroundColor: "transparent",
+            // padding: 10,
+            border: "none",
+            marginTop: 3,
+            position: "absolute",
+            top: 75,
+            right: 85
+          }}
+        >
+          <img src={info} alt="Інформація" width={24} height={24} />
+        </button>
         <label
           style={{
             display: "flex",
@@ -542,17 +563,6 @@ const SettingsStep = ({ setStep, userId, setShowInfoPopup }) => {
           }}
         >
           Вправи на аудіювання
-          <button
-            onClick={() => setShowInfoPopup(true)}
-            style={{
-              backgroundColor: "transparent",
-              padding: 10,
-              border: "none",
-              marginTop: 3,
-            }}
-          >
-            <img src={info} alt="Інформація" width={24} height={24} />
-          </button>
           <div
             className={styles.setting_switch_label}
             style={{

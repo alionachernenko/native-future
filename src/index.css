@@ -109,6 +109,12 @@
   src: url("./assets/fonts/e-UkraineHead-UltraLight.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "Inclusion";
+  src: url("./assets/fonts/inclusion.ukr.otf") format("opentype");
+  font-weight: 1 100;
+}
+
 * {
   box-sizing: border-box;
 }

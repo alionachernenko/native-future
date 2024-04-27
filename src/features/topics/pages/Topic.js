@@ -39,6 +39,7 @@ export const Topic = () => {
 
   const dispatch = useDispatch();
 
+  console.log({ currentTask });
   useEffect(() => {
     const uid = localStorage.getItem("uid");
 
@@ -131,6 +132,9 @@ export const Topic = () => {
   };
 
   const handleSkipPress = async () => {
+    if (currentTask === 4) {
+      navigate("/chat");
+    }
     if (currentTask === 3) {
       dispatch(userActions.setUser({ ...user, points: user.points + points }));
       try {
@@ -254,7 +258,7 @@ const Vocabulary = ({
   return (
     <>
       <img
-        src={task.image}
+        src={task?.image}
         width={238}
         height={238}
         style={{
@@ -272,7 +276,7 @@ const Vocabulary = ({
           marginBottom: 16,
         }}
       >
-        {task.title}
+        {task?.title}
       </p>
       <p
         style={{
@@ -284,10 +288,10 @@ const Vocabulary = ({
           marginBottom: 16,
         }}
       >
-        {task.subtitle}
+        {task?.subtitle}
       </p>
       <div className={styles.options_container}>
-        {task.options.map((option) => {
+        {task?.options.map((option) => {
           return (
             <div className={styles.option_button_container}>
               <button
